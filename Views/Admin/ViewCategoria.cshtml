@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Catalogo.Models.Empresa>
+
+@{
+    ViewData["Title"] = "ViewCategoria";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Categoria</h1>
+<br />
+<div class="row">
+    <div class="col-lg-4">
+        <p>
+            <button class="btn btn-success" data-toggle="modal" data-target="#modalcadastro">Adicionar Empresa</button>
+        </p>
+    </div>
+    <div class="col-lg-4">
+        <a href="@Url.Action("ViewAllCatalogs","Admin")" class="btn btn-primary">Voltar pra categorias</a>
+    </div>
+</div>
+
+@if (Model.Count() > 0)
+{
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProfileInstagram)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumberWhatsApp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileInstagram)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumberWhatsApp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="@Url.Action("ViewCategoria","Admin")?Id=@item.Id">Ver</a>
+                        <a class="btn btn-danger" id="deletarempresa" href="@Url.Action("DeleteEmpresa","Admin")?Id=@item.Id">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <span>Nenhuma Empresa pra essa categoria</span>
+}
+
+
+
+<form action="@Url.Action("AddEmpresa","Admin")" method="post" enctype="multipart/form-data">
+    <!-- Modal de cadastro de categorias -->
+    <div id="modalcadastro" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cadastrar Empresa</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="empresa.CategoriaID" value="@ViewBag.CategoriaId"/>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <span>Nome :</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" placeholder="Nome da empresa" name="empresa.Name" />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <span>Número :</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" placeholder="Número da empresa" name="empresa.Number" />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <span>Perfil Instagram :</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" placeholder="Perfil do Instagram" name="empresa.ProfileInstagram" />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <span>WhatsApp :</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" placeholder="Número do WhatsApp" name="empresa.PhoneNumberWhatsApp" />
+                        </div>
+                    </div><br />
+                    <div class="row form-group">
+                        
+                        <div class="col-lg-4">
+                            <span>Logo</span>
+                            <input type="file" name="file" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Adicionar" />
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<script>
+
+    $(document).on("click", "#deletarempresa", function () {
+        var confirmar = confirm('Deseja realmente excluir a categoria e empresas relacionadas à ela ?');
+
+        if (!confirmar) {
+            return false;
+        }
+    });
+</script>

@@ -1,0 +1,62 @@
+﻿@model List<Categoria>
+@{
+    ViewData["Title"] = "Início Catálogo";
+}
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/css-principal.css" />
+</head>
+    <div class="panel">
+
+        <div class="panel-heading">
+            <div class="categorias">
+                <h2><span>Categorias</span></h2>
+            </div>
+
+        </div>
+
+        <div class="panel-body">
+
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 centralizar mt-5">
+                        <a class=" titulo-categoria" href="@Url.Action("Empresas","Home")/@item.Id">@item.Name</a>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br />
+    <br />
+
+    <div id="page-container">
+        <div id="pf1" class="pf w0 h0" data-page-no="1">
+            <div class="pc pc1 w0 h0 opened">
+                <a class="l" href="#pf2" data-dest-detail="[2,&quot;XYZ&quot;,null,null,null]"><div class="d m0" style="border-style:none;position:absolute;left:39.600000px;bottom:504.320010px;width:245.520000px;height:48.960020px;background-color:rgba(255,255,255,0.000001);"></div></a>
+                <a class="l" href="#pf3" data-dest-detail="[3,&quot;XYZ&quot;,null,null,null]">
+                    <div class="d m0" style="border-style:none;position:absolute;left:303.120000px;bottom:504.320010px;width:252.000000px;height:51.119990px;background-color:rgba(255,255,255,0.000001);">
+                    </div>
+                </a>
+                <a class="l" href="#pf4" data-dest-detail="[4,&quot;XYZ&quot;,null,null,null]">
+                    <div class="d m0" style="border-style:none;position:absolute;left:41.040000px;bottom:456.079990px;width:246.240000px;height:44.640010px;background-color:rgba(255,255,255,0.000001);">
+                    </div>
+                </a>
+                <a class="l" href="#pf5" data-dest-detail="[5,&quot;XYZ&quot;,null,null,null]">
+                    <div class="d m0" style="border-style:none;position:absolute;left:306.000000px;bottom:453.200010px;width:254.159970px;height:48.239990px;background-color:rgba(255,255,255,0.000001);">
+                    </div>
+                </a>
+                <a class="l" href="#pf6" data-dest-detail="[6,&quot;XYZ&quot;,null,null,null]">
+                    <div class="d m0" style="border-style:none;position:absolute;left:37.440000px;bottom:400.640010px;width:254.880010px;height:51.120000px;background-color:rgba(255,255,255,0.000001);">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+

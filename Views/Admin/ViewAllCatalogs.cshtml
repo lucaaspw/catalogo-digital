@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Catalogo.Models.Categoria>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewAllCatalogs</title>
+</head>
+<body>
+    <p>
+        <button class="btn btn-success" data-toggle="modal" data-target="#modalcadastro">Criar nova categoria</button>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Categoria
+                </th>
+                <th>
+                    Cadastrado em
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="@Url.Action("ViewCategoria","Admin")?Id=@item.Id">Ver</a>
+                        <a class="btn btn-danger" id="deletarcategoria" href="@Url.Action("DeleteCategoria","Admin")?Id=@item.Id">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <form action="@Url.Action("AddCategoria","Admin")" method="post">
+    <!-- Modal de cadastro de categorias -->
+    <div id="modalcadastro" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cadastrar Categoria</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <span>Nome :</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" placeholder="Nome da categoria" name="categoria.Name"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Adicionar"/>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+        </form>
+
+</body>
+
+
+
+</html>
+
+
+<script>
+
+    $(document).on("click", "#deletarcategoria", function () {
+        var confirmar = confirm('Deseja realmente excluir a categoria e empresas relacionadas à ela ?');
+
+        if (!confirmar) {
+            return false;
+        }
+    });
+
+</script>
+

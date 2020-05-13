@@ -1,0 +1,119 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+.navbar.scrolled {
+    background: rgba(3, 98, 223, 0.966) !important;
+    transition: 0.5s;
+}
+.panel-primary {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.23)!important;
+}
+.bg-azul {
+    background-color: #0c67d7!important;
+}
+.panel-body img {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+    padding-bottom: 10px;
+    display: flex;
+    align-self: center;
+}
+
+.panel-body p {
+    margin-top: 10px;
+    color: rgba(3, 98, 223, 0.966);
+    padding: 2px 10px;
+}
+
+.panel-body p a {
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    background: #ffd800;
+    display: block;
+}
+
+.panel-body p a i {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 15px;
+    background: rgba(3, 98, 223, 0.966);
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+@media (min-width: 768px) {
+    html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.red{
+    color: #ff0000;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+}
