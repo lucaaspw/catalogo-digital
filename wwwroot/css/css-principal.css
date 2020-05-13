@@ -70,27 +70,19 @@ p {
 .jumbotron {
     background: #fff;
 }
-
-
-
+.img-fluid{
+    margin: 0 auto;
+}
+.containerBox {
+    display: flex;
+    margin: 0 auto;
+}
 .banner-tablet {
     display: none!important;
 }
 
 .banner-mobile{
     display: none!important;
-}
-#slider {
-    width: 80%;
-    max-width: 900px;
-    height: 25vw;
-    position: relative;
-}
-.banner-rotate {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 .categorias h2 {
     display: flex;
@@ -114,6 +106,8 @@ p {
     color: #fff;
     font-weight: 600;
     text-decoration: none;
+    min-width: 215px;
+    text-align: center;
     padding: 15px 30px;
     border-radius: 10px;
     transition: .4s;
@@ -250,9 +244,7 @@ footer {
 
     .banner-tablet {
         display: flex !important;
-        width: 100%;
-        height: auto;
-        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.63);
+        margin: 0 auto;
     }
 
     .banner-mobile {
@@ -300,15 +292,6 @@ footer {
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-    .navbar-toggler-icon {
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        vertical-align: middle;
-        content: "";
-        background: no-repeat center center;
-        background-size: 100% 100%;
-    }
     .navbar-nav .nav-link {
         margin-left: 20px;
     }
@@ -321,9 +304,7 @@ footer {
 
     .banner-mobile {
         display: flex !important;
-        width: 100%;
-        height: auto;
-        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.63);
+        margin: 0 auto;
     }
 }
 

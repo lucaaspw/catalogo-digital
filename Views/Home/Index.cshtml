@@ -22,7 +22,7 @@
 
                 @foreach (var item in Model)
                 {
-                    <div class="col-lg-3 centralizar mt-5">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 centralizar mt-5">
                         <a class=" titulo-categoria" href="@Url.Action("Empresas","Home")/@item.Id">@item.Name</a>
                     </div>
                 }
