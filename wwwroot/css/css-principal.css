@@ -59,6 +59,9 @@ p {
     display: flex;
     justify-content: center;
 }
+.frase:hover {
+    color: rgba(255, 255, 255, 0.8)!important;
+}
 .size-2em {
     font-size: 1.5em;
     text-transform: uppercase;
@@ -128,7 +131,8 @@ p {
 .background-img{
     width: 100%;
     background: url("../imagens/ceu.jpg");
-    background-position: center;
+    background-attachment: fixed;
+    background-position: 0%;
     background-size: cover;
 }
 .centralizar .titulo-categoria:hover {
@@ -252,7 +256,9 @@ footer {
         background: #fff;
         border-radius: 0;
     }
-
+    .frase{
+        text-align: center;
+    }
     .containerBox {
         display: none !important;
     }
@@ -275,10 +281,10 @@ footer {
         padding: 20px 0;
     }
 
-        .contact .form-control {
-            height: 40px;
-            border: 1px solid #fff;
-        }
+    .contact .form-control {
+        height: 40px;
+        border: 1px solid #fff;
+    }
 
     .btnD1 {
         padding: 10px 40px;
@@ -294,21 +300,24 @@ footer {
         margin-top: 10px;
     }
 
-        .sci li {
-            list-style: none;
-            margin: 0 10px;
-        }
+    .sci li {
+        list-style: none;
+        margin: 0 10px;
+    }
 
-        .sci li a {
-            color: #fff;
-            font-size: 1.5rem;
-            transition: .5s;
-        }
+    .sci li a {
+        color: #fff;
+        font-size: 1.5rem;
+        transition: .5s;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
     .navbar-nav .nav-link {
         margin-left: 20px;
+    }
+    .frase {
+        text-align: center;
     }
     .containerBox {
         display: none!important;

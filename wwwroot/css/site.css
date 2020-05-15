@@ -39,6 +39,7 @@ html {
     border-radius: 10px;
     padding: 12px 42px;
     font-size: 1.3em;
+    text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.28);
@@ -137,7 +138,7 @@ html {
         padding: 0px;
     }
     .panel-body img{
-        margin: 0;
+        margin: 0 auto;
         padding-bottom: 0;
     }
 
@@ -163,23 +164,23 @@ button.accept-policy {
 
     /* Sticky footer styles
 -------------------------------------------------- */
-    html {
-        position: relative;
-        min-height: 100%;
-    }
+html {
+    position: relative;
+    min-height: 100%;
+}
 
-    body {
-        /* Margin bottom by footer height */
-        margin-bottom: 60px;
-    }
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
 
-    .red {
-        color: #ff0000;
-    }
+.red {
+    color: #ff0000;
+}
 
-    .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        white-space: nowrap;
-    }
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+}
