@@ -39,6 +39,7 @@ html {
 .bg-azul {
     background-color: #0c67d7!important;
 }
+
 .panel-body img {
     width: 150px;
     height: 150px;
@@ -72,6 +73,9 @@ html {
     color: #fff;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+.modal-content {
+    margin-top: 10px;
 }
 
 @media (min-width: 768px) {

@@ -33,12 +33,39 @@ html {
     background: rgba(3, 98, 223, 0.966) !important;
     transition: 0.5s;
 }
+.categoria-title {
+    background: rgb(246, 230, 59);
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px 42px;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.28);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.18);
+}
+.carrossel {
+    height: 70vh;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.carrossel .swiper-slide {
+    width: 200px;
+    background: rgba(2, 27, 255, 0.815);
+}
+
+.carrossel .swiper-slide img {
+    width: 100%;
+    border-radius: 10px;
+}
 .panel-primary {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.23)!important;
 }
 .bg-azul {
     background-color: #0c67d7!important;
 }
+
 .panel-body img {
     width: 150px;
     height: 150px;
@@ -73,47 +100,67 @@ html {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
+.modal-content {
+    margin-top: 10px;
+}
 
 @media (min-width: 768px) {
     html {
     font-size: 16px;
   }
 }
+/*Inicion da responsividade mobile*/
+@media (max-width: 500px) {
+    .panel-body{
+        padding: 6px;
+    }
+    .panel-body p {
+        padding: 0px;
+    }
+    .panel-body img{
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+}
+/*Fim da responsividade mobile*/
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
-/* Sticky footer styles
+    /* Sticky footer styles
 -------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
+    html {
+        position: relative;
+        min-height: 100%;
+    }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.red{
-    color: #ff0000;
-}
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+    }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-}
+    .red {
+        color: #ff0000;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        white-space: nowrap;
+    }

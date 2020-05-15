@@ -33,7 +33,9 @@ namespace Catalogo.Controllers
         [HttpGet]
         public IActionResult Empresas(int Id)
         {
-            List<Empresa> empresas = _context.Empresa.Where(x => x.CategoriaID == Id).ToList();
+            var categoria = _context.Categoria.Where(x => x.Id == Id).FirstOrDefault();
+            List<Empresa> empresas = _context.Empresa.Where(x => x.CategoriaID == Id).OrderBy(x => x.Name).ToList();
+            ViewBag.categoria = categoria.Name;
             return View(empresas);
         }
 
