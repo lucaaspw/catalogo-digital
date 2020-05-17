@@ -39,6 +39,7 @@
                         @Html.DisplayFor(modelItem => item.CreateDate)
                     </td>
                     <td>
+                        <a class="btn btn-success" href="@Url.Action("EditCategoria","Admin")?Id=@item.Id">Editar</a>
                         <a class="btn btn-primary" href="@Url.Action("ViewCategoria","Admin")?Id=@item.Id">Ver</a>
                         <a class="btn btn-danger" id="deletarcategoria" href="@Url.Action("DeleteCategoria","Admin")?Id=@item.Id">Deletar</a>
                     </td>
@@ -47,35 +48,37 @@
         </tbody>
     </table>
 
-    <form action="@Url.Action("AddCategoria","Admin")" method="post">
     <!-- Modal de cadastro de categorias -->
-    <div id="modalcadastro" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+    <form action="@Url.Action("AddCategoria","Admin")" method="post">
 
-            <div class="modal-content" style="margin-top: 100px;">
-                <div class="modal-header">
-                    <h4 class="modal-title">Cadastrar Categoria</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <span>Nome :</span>
-                        </div>
-                        <div class="col-lg-6">
-                            <input type="text" class="form-control" placeholder="Nome da categoria" name="categoria.Name"/>
+        <div id="modalcadastro" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content" style="margin-top: 100px;">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cadastrar Categoria</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <span>Nome :</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" placeholder="Nome da categoria" name="categoria.Name" />
+                            </div>
                         </div>
                     </div>
+                    <div class="modal-footer" style="clear: both;">
+                        <input type="color" id="select-cor" onchange="addCor();" class="btn btn-warning" value="Seleciona Cor" />
+                        <input type="submit" class="btn btn-primary" value="Adicionar" />
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value="Adicionar"/>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-        </form>
+    </form>
 
 </body>
 
@@ -85,6 +88,10 @@
 
 
 <script>
+    function addCor() {
+        var cor = document.getElementById("select-cor").value;
+        document.getElementById("categoria").style.backgroundColor = cor;
+    }
 
     $(document).on("click", "#deletarcategoria", function () {
         var confirmar = confirm('Deseja realmente excluir a categoria e empresas relacionadas à ela ?');

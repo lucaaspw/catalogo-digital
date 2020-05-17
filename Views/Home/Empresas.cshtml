@@ -3,6 +3,12 @@
 @{
     ViewData["Title"] = "Empresas";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string profileWhatsApp = "";
+
+    List<Empresa> exclusivas = new List<Empresa>();
+    exclusivas = ViewBag.Exclusivas;
+
 }
 
 
@@ -14,6 +20,7 @@
     <link rel="stylesheet" href="~/css/swiper.min.css" />
 </head>
 <style>
+
     body {
         margin: 0px;
         padding: 0px;
@@ -23,102 +30,125 @@
 
 @if (Model.Count() == 0)
 {
-<p class="size-2em">
-    Nenhuma empresa para esta categoria.
-</p>
+    <p class="size-2em">
+        Nenhuma empresa para esta categoria.
+    </p>
 }
 else
 {
-<div class="centralizar">
-    <p class="categoria-title mb-3 mt-2">@ViewBag.categoria</p>
-</div>
-<div class="centralizar">
-    <p class="toque-icones mb-3">Toque nos icones para interagir <img src="~/imagens/icone.png" /></p>
-</div>
-<div class="carrossel">
-    <div class=" swiper-container ">
-        <div class=" swiper-wrapper ">
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
-            </div>
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
-            </div>
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
-            </div>
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
-            </div>
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
-            </div>
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
-            </div>
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
-            </div>
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
-            </div>
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
-            </div>
-            <div class=" swiper-slide ">
-                <img src="~/imagens/tempsnip.png" alt="">
+    <div class="centralizar">
+        <p class="categoria-title mb-3 mt-2">@ViewBag.categoria</p>
+    </div>
+    <div class="centralizar">
+        <p class="categoria-title-red mb-5">Veja também</p>
+    </div>
+
+    @if (exclusivas.Count > 0)
+    {
+        <div class="carrossel">
+            <div class=" swiper-container ">
+                <div class=" swiper-wrapper ">
+                    @foreach (var item in exclusivas)
+                    {
+                        if (!string.IsNullOrEmpty(item.PhoneNumberWhatsApp))
+                        {
+                            profileWhatsApp = item.PhoneNumberWhatsApp.Substring(2);
+                        }
+                        else
+                        {
+                            item.PhoneNumberWhatsApp = "";
+                        }
+
+
+                        @if (item.IsExclusive)
+                        {
+
+
+                            <div class=" swiper-slide ">
+                                <div class="panel panel-primary bg-white">
+
+                                    <div class="panel-heading bg-azul">
+
+                                        <h3 class="panel-title text-center">@item.Name</h3>
+
+                                    </div>
+
+
+                                    <div class="panel-body">
+                                        <img src="@Url.Content("~/icones/")@item.Imagem" class="img-thumbnail border border-primary" />
+                                        <p class="mt-3 "><a href="tel:@item.Number" target="_blank"><i class="fas fa-phone-alt mr-2"></i> @item.Number</a></p>
+                                        <p class="mt-1 "><a href="https://www.instagram.com/@item.ProfileInstagram/?hl=pt-br" target="_blank"><i class="fab fa-instagram mr-2"></i> @item.ProfileInstagram</a></p>
+                                        <p class="mt-1 "><a href="http://wa.me/@item.PhoneNumberWhatsApp" target="_blank"><i class="fab fa-whatsapp mr-2"></i>@profileWhatsApp</a></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        }
+
+                    }
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="centralizar">
-    <p class="categoria-title mb-5">Exclusivos</p>
-</div>
 
-<div class="row centralizar">
-    @foreach (var empresa in Model)
+        <div class="centralizar">
+            <p class="toque-icones mb-3">Toque nos icones para interagir <img src="~/imagens/icone-pr.png" /></p>
+        </div>
+    }
+
+    <div class="row centralizar">
+        @foreach (var empresa in Model)
         {
 
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mt-3 ">
-        <div class="panel panel-primary bg-white">
+            if (!string.IsNullOrEmpty(empresa.PhoneNumberWhatsApp))
+            {
+                profileWhatsApp = empresa.PhoneNumberWhatsApp.Substring(2);
+            }
+            else
+            {
+                empresa.PhoneNumberWhatsApp = "";
+            }
 
-            <div class="panel-heading bg-azul">
 
-                <h3 class="panel-title text-center">@empresa.Name</h3>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mt-3 ">
+                <div class="panel panel-primary bg-white">
 
+                    <div class="panel-heading bg-azul">
+
+                        <h3 class="panel-title text-center">@empresa.Name</h3>
+
+                    </div>
+
+
+                    <div class="panel-body">
+                        <img src="@Url.Content("~/icones/")@empresa.Imagem" class="img-thumbnail border border-primary" />
+                        <p class="mt-3 "><a href="tel:@empresa.Number" target="_blank"><i class="fas fa-phone-alt mr-2"></i> @empresa.Number</a></p>
+                        <p class="mt-1 "><a href="https://www.instagram.com/@empresa.ProfileInstagram/?hl=pt-br" target="_blank"><i class="fab fa-instagram mr-2"></i> @empresa.ProfileInstagram</a></p>
+                        <p class="mt-1 "><a href="http://wa.me/@empresa.PhoneNumberWhatsApp" target="_blank"><i class="fab fa-whatsapp mr-2"></i>@profileWhatsApp</a></p>
+                    </div>
+
+                </div>
             </div>
-
-
-            <div class="panel-body">
-                <img src="@Url.Content("~/icones/")@empresa.Imagem" class="img-thumbnail border border-primary" />
-                <p class="mt-3 "><a href="tel:@empresa.Number" target="_blank"><i class="fas fa-phone-alt mr-2"></i> @empresa.Number</a></p>
-                <p class="mt-1 "><a href="https://www.instagram.com/@empresa.ProfileInstagram/?hl=pt-br" target="_blank"><i class="fab fa-instagram mr-2"></i> @empresa.ProfileInstagram</a></p>
-                <p class="mt-1 "><a href="http://wa.me/55.@empresa.PhoneNumberWhatsApp" target="_blank"><i class="fab fa-whatsapp mr-2"></i>@empresa.PhoneNumberWhatsApp</a></p>
-            </div>
-
-        </div>
-    </div>
         }
-</div>
-<script src="~/js/swiper.min.js"></script>
-<script>
+    </div>
+    <script src="~/js/swiper.min.js"></script>
+    <script>
 
-    var swiper = new Swiper('.swiper-container', {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 'auto',
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 300,
-            modifier: 1,
-            slideShadows: true,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-        },
-    });
-</script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 300,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
 }
 

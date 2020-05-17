@@ -1,0 +1,65 @@
+﻿@model Catalogo.Models.Empresa
+
+@{
+    ViewData["Title"] = "Editar Empresa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="@Url.Action("UpdateEmpresa","Admin")" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="categoriaId" value="@ViewBag.CategoriaId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <img src="@Url.Content("~/icones/")@Model.Imagem" width="200" />
+            </div>
+            <div class="col-lg-4">
+                <span>Logo</span>
+                <input type="file" name="file" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="CreateDate" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="Imagem" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Number" class="control-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfileInstagram" class="control-label"></label>
+                <input asp-for="ProfileInstagram" class="form-control" />
+                <span asp-validation-for="ProfileInstagram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumberWhatsApp" class="control-label"></label>
+                <input asp-for="PhoneNumberWhatsApp" class="form-control" />
+                <span asp-validation-for="PhoneNumberWhatsApp" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsExclusive" /> @Html.DisplayNameFor(model => model.IsExclusive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Editar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="@Url.Action("ViewCategoria","Admin")?Id=@ViewBag.CategoriaId">Voltar pra categoria</a>
+</div>
+

@@ -29,5 +29,8 @@ namespace Catalogo.Models
         public int CategoriaID { get; set; }
 
         public string Imagem { get; set; }
+
+        [Display(Name = "Exclusiva")]
+        public bool IsExclusive { get; set; }
     }
 }

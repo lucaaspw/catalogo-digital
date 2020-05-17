@@ -38,7 +38,7 @@
                     @Html.DisplayNameFor(model => model.PhoneNumberWhatsApp)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CreateDate)
+                    @Html.DisplayNameFor(model => model.IsExclusive)
                 </th>
                 <th></th>
             </tr>
@@ -61,10 +61,10 @@
                         @Html.DisplayFor(modelItem => item.PhoneNumberWhatsApp)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CreateDate)
+                        <span>@(item.IsExclusive == true ? "Sim" : "Não")</span>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="@Url.Action("ViewCategoria","Admin")?Id=@item.Id">Ver</a>
+                        <a class="btn btn-primary" href="@Url.Action("ViewEmpresa","Admin")?Id=@item.Id&&categoriaId=@ViewBag.CategoriaId">Ver</a>
                         <a class="btn btn-danger" id="deletarempresa" href="@Url.Action("DeleteEmpresa","Admin")?Id=@item.Id">Deletar</a>
                     </td>
                 </tr>
@@ -120,7 +120,18 @@ else
                             <span>WhatsApp :</span>
                         </div>
                         <div class="col-lg-6">
-                            <input type="text" class="form-control" placeholder="Número do WhatsApp" name="empresa.PhoneNumberWhatsApp" />
+                            <input type="text" class="form-control" placeholder="Número do WhatsApp, sem o +55" name="empresa.PhoneNumberWhatsApp" />
+                        </div>
+                    </div><br />
+                    <div class="row form-group">
+                        <div class="col-lg-3">
+                            <span>Exclusiva:</span>
+                        </div>
+                        <div class="col-lg-6">
+                            Sim
+                            <input type="radio" value="true" name="empresa.IsExclusive"/>
+                            Não
+                            <input type="radio" value="false" name="empresa.IsExclusive"/>
                         </div>
                     </div><br />
                     <div class="row form-group">

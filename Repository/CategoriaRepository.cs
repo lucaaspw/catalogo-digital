@@ -20,6 +20,12 @@ namespace Catalogo.Repository
             return _context.Categoria.ToList();
         }
 
+        public void Update(Categoria categoria)
+        {
+            _context.Update<Categoria>(categoria);
+            _context.SaveChanges();
+        }
+
         public void Remove(int id)
         {
             //Apagando categoria

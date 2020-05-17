@@ -26,7 +26,7 @@ namespace Catalogo.Controllers
         public IActionResult Index()
         {
             //CategoriaRepository categoria = new CategoriaRepository(_context);
-            var result = _context.Categoria.ToList();
+            var result = _context.Categoria.OrderBy(x=> x.Name).ToList();
             return View(result);
         }
 
@@ -36,6 +36,9 @@ namespace Catalogo.Controllers
             var categoria = _context.Categoria.Where(x => x.Id == Id).FirstOrDefault();
             List<Empresa> empresas = _context.Empresa.Where(x => x.CategoriaID == Id).OrderBy(x => x.Name).ToList();
             ViewBag.categoria = categoria.Name;
+            ViewBag.Exclusivas = _context.Empresa.Where(x => x.IsExclusive == true).ToList();
+
+
             return View(empresas);
         }
 

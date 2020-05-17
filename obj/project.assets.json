@@ -8172,11 +8172,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bruno.oliveira\\Lucas\\Catalogo\\Catalogo\\Catalogo.csproj",
+      "projectUniqueName": "C:\\Users\\bruno.oliveira\\Lucas\\Catalogo\\CatalogoDigital\\Catalogo.csproj",
       "projectName": "Catalogo",
-      "projectPath": "C:\\Users\\bruno.oliveira\\Lucas\\Catalogo\\Catalogo\\Catalogo.csproj",
+      "projectPath": "C:\\Users\\bruno.oliveira\\Lucas\\Catalogo\\CatalogoDigital\\Catalogo.csproj",
       "packagesPath": "C:\\Users\\bruno.oliveira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bruno.oliveira\\Lucas\\Catalogo\\Catalogo\\obj\\",
+      "outputPath": "C:\\Users\\bruno.oliveira\\Lucas\\Catalogo\\CatalogoDigital\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bruno.oliveira\\AppData\\Roaming\\NuGet\\NuGet.Config",

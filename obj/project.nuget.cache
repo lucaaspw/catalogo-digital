@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uHxdzFrsr3WwX7chBHhJaHterwu08OQR6VxQAUlKEajrev0gydGqjopkwcsnxTapKIY6m+DfG8Rng0hl6JBheQ==",
+  "dgSpecHash": "YMDKbLCnBmtzo0pRywc01F/ljTZVPxM7DAFFVkYq69Rg4DseJpyqqAftQcJo43FWBB8UlCp6v+8XCUMranQb/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bruno.oliveira\\Lucas\\Catalogo\\Catalogo\\Catalogo.csproj",
+  "projectFilePath": "C:\\Users\\bruno.oliveira\\Lucas\\Catalogo\\CatalogoDigital\\Catalogo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno.oliveira\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\bruno.oliveira\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

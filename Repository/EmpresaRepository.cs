@@ -29,5 +29,11 @@ namespace Catalogo.Repository
 
         }
 
+        public void Update(Empresa empresa)
+        {
+            _context.Update<Empresa>(empresa);
+            _context.SaveChanges();
+        }
+
     }
 }
